@@ -146,7 +146,7 @@ class CircleArray {
             return;
         }
         //思路：从front开始遍历，遍历多少个元素
-        for (int i = front; i < front+ size(); i++) {
+        for (int i = front; i < front + size(); i++) {
             System.out.printf("arr[%d]=%d\n", i % maxSize, arr[i % maxSize]);
         }
     }
