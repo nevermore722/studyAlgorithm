@@ -17,3 +17,4 @@ study Data Structure and Algorithm
 >2019/12/7
 >>com.zjh.linkedlist.SingleLinkedListDemo，单链表按顺序插入节点
 >>com.zjh.linkedlist.SingleLinkedListDemo，单链表节点的修改
+>>com.zjh.linkedlist.SingleLinkedListDemo，单链表节点的删除
