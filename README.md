@@ -18,3 +18,7 @@ study Data Structure and Algorithm
 >>com.zjh.linkedlist.SingleLinkedListDemo，单链表按顺序插入节点<br>
 >>com.zjh.linkedlist.SingleLinkedListDemo，单链表节点的修改<br>
 >>com.zjh.linkedlist.SingleLinkedListDemo，单链表节点的删除
+
+>2019/12/8
+>>com.zjh.linkedlist.SingleLinkedListDemo，求单链表中有效节点的个数<br>
+>>com.zjh.linkedlist.SingleLinkedListDemo，查找单链表中的倒数第k个节点
