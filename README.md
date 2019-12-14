@@ -22,3 +22,6 @@ study Data Structure and Algorithm
 >2019/12/8
 >>com.zjh.linkedlist.SingleLinkedListDemo，求单链表中有效节点的个数<br>
 >>com.zjh.linkedlist.SingleLinkedListDemo，查找单链表中的倒数第k个节点
+
+>2019/12/14
+>>com.zjh.linkedlist.SingleLinkedListDemo，将单链表反转
