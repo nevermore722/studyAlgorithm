@@ -28,6 +28,6 @@ study Data Structure and Algorithm
 >>com.zjh.linkedlist.SingleLinkedListDemo，com.zjh.linkedlist.TestStack，逆序打印<br>
 >>com.zjh.linkedlist.DoubleLinkedListDemo,双向链表增删改查
 
->2019/12/14
+>2019/12/15
 >>com.zjh.linkedlist.DoubleLinkedListDemo，双向链表功能的测试<br>
 >>com.zjh.linkedlist.Josepfu,约瑟夫问题的构建和遍历
