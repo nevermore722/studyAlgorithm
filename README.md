@@ -29,4 +29,5 @@ study Data Structure and Algorithm
 >>com.zjh.linkedlist.DoubleLinkedListDemo,双向链表增删改查
 
 >2019/12/14
->>com.zjh.linkedlist.DoubleLinkedListDemo，双向链表功能的测试
+>>com.zjh.linkedlist.DoubleLinkedListDemo，双向链表功能的测试<br>
+>>com.zjh.linkedlist.Josepfu,约瑟夫问题的构建和遍历
