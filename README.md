@@ -27,3 +27,6 @@ study Data Structure and Algorithm
 >>com.zjh.linkedlist.SingleLinkedListDemo，将单链表反转<br>
 >>com.zjh.linkedlist.SingleLinkedListDemo，com.zjh.linkedlist.TestStack，逆序打印<br>
 >>com.zjh.linkedlist.DoubleLinkedListDemo,双向链表增删改查
+
+>2019/12/14
+>>com.zjh.linkedlist.DoubleLinkedListDemo，双向链表功能的测试
