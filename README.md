@@ -31,3 +31,6 @@ study Data Structure and Algorithm
 >2019/12/15
 >>com.zjh.linkedlist.DoubleLinkedListDemo，双向链表功能的测试<br>
 >>com.zjh.linkedlist.Josepfu,约瑟夫问题的构建和遍历
+
+>2019/12/21
+>>com.zjh.linkedlist.Josepfu，约瑟夫问题代码实现
