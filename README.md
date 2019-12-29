@@ -37,3 +37,6 @@ study Data Structure and Algorithm
 
 >2019/12/28
 >>com.zjh.stack.ArrayStackDemo，数组模拟栈代码实现
+
+>2019/12/29
+>>com.zjh.stack.ArrayStackDemo，栈的功能测试
