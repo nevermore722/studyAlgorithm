@@ -54,6 +54,7 @@ public class ArrayStackDemo {
 
 }
 
+//定义一个ArrayStack表示栈
 class ArrayStack {
 
   //栈的大小

@@ -39,4 +39,5 @@ study Data Structure and Algorithm
 >>com.zjh.stack.ArrayStackDemo，数组模拟栈代码实现
 
 >2019/12/29
->>com.zjh.stack.ArrayStackDemo，栈的功能测试
+>>com.zjh.stack.ArrayStackDemo，栈的功能测试  
+>>com.zjh.stack.Calculator，使用栈完成一位数的加减乘除运算
