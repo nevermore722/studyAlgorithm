@@ -11,7 +11,7 @@ public class Calculator {
 
   public static void main(String[] args) {
     //根据前面老师的思路，完成表达式的运算
-    String expression = "7+2*6-4";
+    String expression = "700+2*6-4";
     //创建两个栈，数栈，一个符号栈
     ArrayStack2 numStack = new ArrayStack2(10);
     ArrayStack2 operStack = new ArrayStack2(10);
@@ -24,6 +24,8 @@ public class Calculator {
     int res = 0;
     //将每次扫描得到的char保存到ch
     char ch = ' ';
+    //用于拼接多位数
+    String keepNum = "";
     //开始while循环的扫描expression
     while (true) {
       //以此得到expression的每一个字符
@@ -55,8 +57,32 @@ public class Calculator {
         }
       } else {
         //如果是数，则直接入数栈
-        //?"1+3" '1'->1
-        numStack.push(ch - 48);
+        //?"1+3" '1'->1 ACSCII码
+        //numStack.push(ch - 48);
+        //分析思路
+        //1.当处理多位数时，不能发现是一个数就立即入栈，因为它可能是多位数
+        //2.在处理数时，需要向expression的表达式的index后再看一位，如果是数就进行
+        //扫描，如果是符号才出栈
+        //3.因此我们需要定义一个变量字符串，用于拼接
+
+        //处理多位数
+        keepNum += ch;
+
+        //如果ch已经是expression的最后一位，就直接入栈
+        if (index == expression.length() - 1) {
+          numStack.push(Integer.parseInt(keepNum));
+
+        } else {
+          //判断下一个字符串是不是数字，如果是数字，就继续扫描，如果是运算符，则入栈
+          //注意是看后一位，不是index++
+          if (operStack.isOper(expression.substring(index + 1, index + 2).charAt(0))) {
+            //如果后一位是运算符，则入栈,keepNum = "1"或者"123"
+            numStack.push(Integer.parseInt(keepNum));
+            //重要的!!!!!!,keepNum清空
+            keepNum = "";
+          }
+        }
+
       }
       //让index + 1,并判断是否扫描到expression最后，
       index++;
