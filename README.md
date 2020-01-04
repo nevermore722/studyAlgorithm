@@ -43,4 +43,5 @@ study Data Structure and Algorithm
 >>com.zjh.stack.Calculator，使用栈完成一位数的加减乘除运算
 
 >2020/1/4
->>com.zjh.stack.PolandNotation，逆波兰计算器分析何实现
+>>com.zjh.stack.PolandNotation，逆波兰计算器分析何实现  
+>>com.zjh.stack.PolandNotation，中缀表达式转list

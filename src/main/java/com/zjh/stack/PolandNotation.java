@@ -14,7 +14,19 @@ import java.util.Stack;
 public class PolandNotation {
 
   public static void main(String[] args) {
-    //先定义一个逆波兰表达式
+
+    //完成将一个中缀表达式转成后缀表达式的功能
+    //说明
+    //1. 1+（（2+3）*4）-5 => 转成 1 2 3 + 4 * + 5 -
+    //2. 因为直接对str 进行操作，不方便，因此先将"1+（（2+3）*4）-5"=>中缀的表达式对应的List
+    //  即"1+((2+3)*4)-5" => ArrayList [1,+,(,(,2,+,3,),*,4,),-,5]
+
+    String expression = "1+((2+3)*4)-5";
+    List<String> infixExpressionList = toInfixExpressionList(expression);
+    //ArrayList[1,+,(,(,2,+,3,),*,4,),-,5]
+    System.out.println(infixExpressionList);
+
+/*    //先定义一个逆波兰表达式
     //(3+4)*5-6  => 3 4 + 5 * 6 -     =29
     //(30+4)*5-6  => 30 4 + 5 * 6 -   =164
     //4 * 5 - 8 + 60 + 8 / 2 => 4 5 * 8 - 60 + 8 2 / + =76
@@ -27,7 +39,39 @@ public class PolandNotation {
     List<String> rpnList = getListString(suffixExpression);
     System.out.println("rpnList=" + rpnList);
     int res = calculate(rpnList);
-    System.out.println("计算的结果是=" + res);
+    System.out.println("计算的结果是=" + res);*/
+  }
+
+  /**
+   * 方法：将中缀表达式转成对应的List
+   */
+  public static List<String> toInfixExpressionList(String s) {
+    //定义一个List,存放中缀表达式对应的内容
+    List<String> ls = new ArrayList<String>();
+    //这是一个指针，用于遍历中缀表达式字符串
+    int i = 0;
+    //对多位数的拼接
+    String str;
+    //每遍历到一个字符串，就放入到c
+    char c;
+    do {
+      //如果c是一个非数字，我需要加入到ls
+      if ((c = s.charAt(i)) < 48 || (c = s.charAt(i)) > 57) {
+        ls.add("" + c);
+        //i需要后移
+        i++;
+      } else { //如果是一个数，需要考虑多位数
+        //先将str置成""   '0'[48]->'9'[57]
+        str = "";
+        while (i < s.length() && (c = s.charAt(i)) >= 48 && (c = s.charAt(i)) <= 57) {
+          //拼接
+          str += c;
+          i++;
+        }
+        ls.add(str);
+      }
+    } while (i < s.length());
+    return ls;
   }
 
   /**
