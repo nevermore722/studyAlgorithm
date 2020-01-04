@@ -41,3 +41,6 @@ study Data Structure and Algorithm
 >2019/12/29
 >>com.zjh.stack.ArrayStackDemo，栈的功能测试  
 >>com.zjh.stack.Calculator，使用栈完成一位数的加减乘除运算
+
+>2020/1/4
+>>com.zjh.stack.PolandNotation，逆波兰计算器分析何实现
