@@ -45,3 +45,6 @@ study Data Structure and Algorithm
 >2020/1/4
 >>com.zjh.stack.PolandNotation，逆波兰计算器分析何实现  
 >>com.zjh.stack.PolandNotation，中缀表达式转list
+
+>2020/1/5
+>>com.zjh.stack.PolandNotation，中缀表达式转后缀表达式
