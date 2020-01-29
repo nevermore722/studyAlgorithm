@@ -57,3 +57,6 @@ study Data Structure and Algorithm
 
 >2020/1/28
 >>com.zjh.recursion.MiGong，迷宫回溯问题分析和实现更改规则
+
+>2020/1/29
+>>com.zjh.recursion.Queue8，八皇后问题分析和实现
