@@ -63,3 +63,6 @@ study Data Structure and Algorithm
 
 >2020/2/1
 >>com.zjh.sort.BubbleSort，冒泡排序算法代码实现
+
+>2020/2/2
+>>com.zjh.sort.BubbleSort，冒泡排序算法优化和总结
