@@ -1,6 +1,8 @@
 package com.zjh.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author ：ZouJiaHui
@@ -12,12 +14,28 @@ import java.util.Arrays;
 public class SelectSort {
 
   public static void main(String[] args) {
-    int[] arr = {101, 34, 119, 1, -1, 90, 123};
+//    int[] arr = {101, 34, 119, 1, -1, 90, 123};
+    //创建一个80000个的随机数组
+    int[] arr = new int[80000];
+    for (int i = 0; i < 80000; i++) {
+      //生成一个[0,8000000)数
+      arr[i] = (int) (Math.random() * 8000000);
+    }
+
     System.out.println("排序前");
-    System.out.println(Arrays.toString(arr));
+//    System.out.println(Arrays.toString(arr));
+    Date date1 = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String date1Str = simpleDateFormat.format(date1);
+    System.out.println("排序前的时间是=" + date1Str);
     selectSort(arr);
     System.out.println("排序后");
+//    System.out.println(Arrays.toString(arr));
+    Date date2 = new Date();
+    String date2Str = simpleDateFormat.format(date2);
+    System.out.println("排序后的时间是=" + date2Str);
     System.out.println(Arrays.toString(arr));
+
   }
 
   //选择排序
@@ -44,9 +62,9 @@ public class SelectSort {
         arr[i] = min;
       }
 
-      System.out.println("第" + (i + 1) + "轮后~~");
-      //101，34，119，1
-      System.out.println(Arrays.toString(arr));
+//      System.out.println("第" + (i + 1) + "轮后~~");
+//      //101，34，119，1
+//      System.out.println(Arrays.toString(arr));
     }
 
    /*

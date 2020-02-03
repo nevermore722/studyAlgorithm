@@ -68,4 +68,5 @@ study Data Structure and Algorithm
 >>com.zjh.sort.BubbleSort，冒泡排序算法优化和总结
 
 >2020/2/3
->>com.zjh.sort.SelectSort，选择排序算法代码实现
+>>com.zjh.sort.SelectSort，选择排序算法代码实现  
+>>com.zjh.sort.SelectSort，选择排序算法速度测试
