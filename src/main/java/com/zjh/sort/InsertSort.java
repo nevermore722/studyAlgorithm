@@ -1,6 +1,8 @@
 package com.zjh.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author ：ZouJiaHui
@@ -12,8 +14,26 @@ import java.util.Arrays;
 public class InsertSort {
 
   public static void main(String[] args) {
-    int[] arr = {101, 34, 119, 1, -1, 89};
+//    int[] arr = {101, 34, 119, 1, -1, 89};
+    //创建一个80000个的随机数组
+    int[] arr = new int[80000];
+    for (int i = 0; i < 80000; i++) {
+      //生成一个[0,8000000)数
+      arr[i] = (int) (Math.random() * 8000000);
+    }
+
+    System.out.println("排序前");
+    Date date1 = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String date1Str = simpleDateFormat.format(date1);
+    System.out.println("排序前的时间是=" + date1Str);
+    //调用插入排序算法
     insertSort(arr);
+    System.out.println("排序后");
+    Date date2 = new Date();
+    String date2Str = simpleDateFormat.format(date2);
+    System.out.println("排序后的时间是=" + date2Str);
+    System.out.println(Arrays.toString(arr));
   }
 
   //插入排序
@@ -35,10 +55,12 @@ public class InsertSort {
         insertIndex--;
       }
       //当退出while循环时，说明插入的位置找到，insertIndex + 1
-      arr[insertIndex + 1] = insertVal;
-
-      System.out.println("第" + i + "轮插入");
-      System.out.println(Arrays.toString(arr));
+      //这里我们判断是否需要赋值
+      if (insertVal + 1 != i) {
+        arr[insertIndex + 1] = insertVal;
+      }
+//      System.out.println("第" + i + "轮插入");
+//      System.out.println(Arrays.toString(arr));
     }
  /*
     //使用逐步推导的方式来讲解，便于理解
