@@ -75,5 +75,8 @@ study Data Structure and Algorithm
 >>com.zjh.sort.InsertSort，插入排序算法代码实现  
 >>com.zjh.sort.InsertSort，插入排序算法速度测试
 
->2020/2/5
+>2020/2/6
 >>com.zjh.sort.ShellSort，希尔排序[交换式]算法实现
+
+>2020/2/8
+>>com.zjh.sort.ShellSort，希尔排序[位移式]算法实现
