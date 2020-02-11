@@ -16,8 +16,8 @@ public class ShellSort {
   public static void main(String[] args) {
 //    int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
     //创建一个80000个的随机数组
-    int[] arr = new int[8];
-    for (int i = 0; i < 8; i++) {
+    int[] arr = new int[8000000];
+    for (int i = 0; i < 8000000; i++) {
       //生成一个[0,8000000)数
       arr[i] = (int) (Math.random() * 8000000);
     }
@@ -28,14 +28,14 @@ public class ShellSort {
     String date1Str = simpleDateFormat.format(date1);
     System.out.println("排序前的时间是=" + date1Str);
     //交换式
-    shellSort(arr);
+//    shellSort(arr);
     //移位方式
-//    shellSort2(arr);
+    shellSort2(arr);
     System.out.println("排序后");
     Date date2 = new Date();
     String date2Str = simpleDateFormat.format(date2);
     System.out.println("排序后的时间是=" + date2Str);
-    System.out.println(Arrays.toString(arr));
+//    System.out.println(Arrays.toString(arr));
   }
 
   //使用逐步推导的方式来编写希尔排序
