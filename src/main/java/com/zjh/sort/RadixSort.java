@@ -1,6 +1,8 @@
 package com.zjh.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author ：ZouJiaHui
@@ -12,8 +14,26 @@ import java.util.Arrays;
 public class RadixSort {
 
   public static void main(String[] args) {
-    int arr[] = {53, 3, 542, 748, 14, 214};
+//    int arr[] = {53, 3, 542, 748, 14, 214};
+    //创建一个80000个的随机数组
+    int[] arr = new int[8000000];
+    for (int i = 0; i < 8000000; i++) {
+      //生成一个[0,8000000)数
+      arr[i] = (int) (Math.random() * 8000000);
+    }
+
+    System.out.println("排序前");
+    Date date1 = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String date1Str = simpleDateFormat.format(date1);
+    System.out.println("排序前的时间是=" + date1Str);
+
     radixSort(arr);
+    System.out.println("排序后");
+    Date date2 = new Date();
+    String date2Str = simpleDateFormat.format(date2);
+    System.out.println("排序后的时间是=" + date2Str);
+//    System.out.println("归并排序后=" + Arrays.toString(arr));
 
   }
 
@@ -71,7 +91,7 @@ public class RadixSort {
         //第i+1轮处理后，需要将每个bucketElementCounts[k] = 0！！！！！！！！！
         bucketElementCounts[k] = 0;
       }
-      System.out.println("第" + (i + 1) + "轮，对个位的排序处理 arr = " + Arrays.toString(arr));
+//      System.out.println("第" + (i + 1) + "轮，对对应位的排序处理 arr = " + Arrays.toString(arr));
     }
 
     /*//第1轮（针对每个元素的个位数进行排序处理）
