@@ -98,4 +98,5 @@ study Data Structure and Algorithm
 >>com.zjh.sort.RadixSort，基数排序算法速度测试
 
 >2020/2/17
->>com.zjh.search.SeqSearch，线性查找分析和实现
+>>com.zjh.search.SeqSearch，线性查找分析和实现  
+>>com.zjh.search.BinarySearch，二分查找算法代码实现和功能完善
