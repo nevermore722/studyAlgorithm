@@ -106,4 +106,4 @@ study Data Structure and Algorithm
 >>com.zjh.search.FibonacciSearch，斐波那契查找代码实现
 
 >2020/2/20
->>com.zjh.hashtab.HashTabDemo，哈希表代码实现（1）
+>>com.zjh.hashtab.HashTabDemo，哈希表代码实现
