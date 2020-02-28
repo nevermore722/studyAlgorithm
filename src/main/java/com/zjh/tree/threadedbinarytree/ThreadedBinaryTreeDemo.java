@@ -12,6 +12,31 @@ import lombok.Data;
 public class ThreadedBinaryTreeDemo {
 
   public static void main(String[] args) {
+    //测试一把中序线索二叉树的功能
+    HeroNode root = new HeroNode(1, "tom");
+    HeroNode node2 = new HeroNode(3, "jack");
+    HeroNode node3 = new HeroNode(6, "smith");
+    HeroNode node4 = new HeroNode(8, "mary");
+    HeroNode node5 = new HeroNode(10, "king");
+    HeroNode node6 = new HeroNode(14, "dim");
+
+    //二叉树，后面我们要递归创建，现在简单处理使用手动创建
+    root.setLeft(node2);
+    root.setRight(node3);
+    node2.setLeft(node4);
+    node2.setRight(node5);
+    node3.setLeft(node6);
+
+    //测试中序线索化
+    ThreadBinaryTree threadBinaryTree = new ThreadBinaryTree();
+    threadBinaryTree.setRoot(root);
+    threadBinaryTree.threadedNods();
+
+    //测试：以10号结点测试
+    HeroNode leftNode = node5.getLeft();
+    HeroNode rightNode = node5.getRight();
+    System.out.println("10号结点的前驱结点是" + leftNode);
+    System.out.println("10号结点的后继结点是" + rightNode);
 
   }
 }
@@ -21,8 +46,8 @@ class ThreadBinaryTree {
 
   private HeroNode root;
 
-  //为了实现线索化，需要创建要给指向当前节点的前驱节点的指针
-  //在递归进行线索化时，pre总是保留前一个节点
+  //为了实现线索化，需要创建要给指向当前结点的前驱结点的指针
+  //在递归进行线索化时，pre总是保留前一个结点
   private HeroNode pre = null;
 
 
@@ -30,10 +55,15 @@ class ThreadBinaryTree {
     this.root = root;
   }
 
+  //重载一把threadedNods方法
+  public void threadedNods() {
+    this.threadedNods(root);
+  }
+
   //编写对二叉树进行中序线索化的方法
 
   /**
-   * @param node 就是当前需要线索化的节点
+   * @param node 就是当前需要线索化的结点
    */
   public void threadedNods(HeroNode node) {
     //如果node == null,不能线索化
@@ -42,36 +72,36 @@ class ThreadBinaryTree {
     }
     //（一）先线索化左子树
     threadedNods(node.getLeft());
-    //（二）线索化当前节点[有难度]
-    //处理当前节点的前驱节点
-    //以8节点来理解
-    //8节点的.left = null,8节点的.leftType = 1
+    //（二）线索化当前结点[有难度]
+    //处理当前结点的前驱结点
+    //以8结点来理解
+    //8结点的.left = null,8结点的.leftType = 1
     if (node.getLeft() == null) {
-      //让当前节点的左指针指向前序节点
+      //让当前结点的左指针指向前序结点
       node.setLeft(pre);
-      //修改当前节点的左指针类型,指向前驱节点
+      //修改当前结点的左指针类型,指向前驱结点
       node.setLeftType(1);
     }
 
-    //处理后
-    if (pre.getRight() == null) {
-      //让前驱节点的右指针指向当前节点
+    //处理后继结点
+    if (pre != null && pre.getRight() == null) {
+      //让前驱结点的右指针指向当前结点
       pre.setRight(node);
-      //修改前驱节点的右指针类型
+      //修改前驱结点的右指针类型
       pre.setRightType(1);
     }
-    //！！！每处理一个节点后，让当前节点是下一个节点的前驱节点
-    pre=node;
+    //！！！每处理一个结点后，让当前结点是下一个结点的前驱结点
+    pre = node;
 
     //（三）再线索化右子树
     threadedNods(node.getRight());
 
   }
 
-  //删除节点
+  //删除结点
   public void delNode(int no) {
     if (root != null) {
-      //如果只有一个root节点，这里立即判断root是不是就是要删除节点
+      //如果只有一个root结点，这里立即判断root是不是就是要删除结点
       if (root.getNo() == no) {
         root = null;
       } else {
@@ -140,7 +170,7 @@ class ThreadBinaryTree {
 
 
 //创建HeroNode
-//先创建HeroNode 节点
+//先创建HeroNode 结点
 @Data
 class HeroNode {
 
@@ -151,8 +181,8 @@ class HeroNode {
   //默认null
   private HeroNode right;
   //说明
-  //1.如果leftType == 0 表示指向的是左子树，如果1则表示指向前驱节点
-  //2.如果rightType == 0 表示指向右子树，如果1表示指向后继节点
+  //1.如果leftType == 0 表示指向的是左子树，如果1则表示指向前驱结点
+  //2.如果rightType == 0 表示指向右子树，如果1表示指向后继结点
   private int leftType;
   private int rightType;
 
@@ -161,16 +191,16 @@ class HeroNode {
     this.name = name;
   }
 
-  //递归删除节点
-  //1.如果删除的节点是叶子节点，则删除该节点
-  //2.如果删除的节点是非叶子节点，则删除该子树
+  //递归删除结点
+  //1.如果删除的结点是叶子结点，则删除该结点
+  //2.如果删除的结点是非叶子结点，则删除该子树
   public void delNode(int no) {
-    //2.如果当前节点的左子节点不为空，并且左子节点就是要删除节点，就将this.left = null;并且就返回（结束递归删除）
+    //2.如果当前结点的左子结点不为空，并且左子结点就是要删除结点，就将this.left = null;并且就返回（结束递归删除）
     if (this.left != null && this.left.no == no) {
       this.left = null;
       return;
     }
-    //3.如果当前节点的右子节点不为空，并且右子节点就是要删除节点，就将this.right = null;并且就返回(结束递归删除)
+    //3.如果当前结点的右子结点不为空，并且右子结点就是要删除结点，就将this.right = null;并且就返回(结束递归删除)
     if (this.right != null && this.right.no == no) {
       this.right = null;
       return;
@@ -188,7 +218,7 @@ class HeroNode {
 
   //编写前序遍历的方法
   public void preOrder() {
-    //先输出父节点
+    //先输出父结点
     System.out.println(this);
     //递归向左子树前序遍历
     if (this.left != null) {
@@ -206,7 +236,7 @@ class HeroNode {
     if (this.left != null) {
       this.left.infixOrder();
     }
-    //输出父节点
+    //输出父结点
     System.out.println(this);
     //递归向右子树中序遍历
     if (this.right != null) {
@@ -241,12 +271,12 @@ class HeroNode {
    */
   public HeroNode preOrderSearch(int no) {
     System.out.println("进入前序遍历~~");
-    //比较当前节点是不是
+    //比较当前结点是不是
     if (this.no == no) {
       return this;
     }
-    //1.则判断当前节点的左子节点是否为空，如果不为空，则递归前序查找
-    //2.如果左递归前序查找，找到节点，则返回
+    //1.则判断当前结点的左子结点是否为空，如果不为空，则递归前序查找
+    //2.如果左递归前序查找，找到结点，则返回
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.preOrderSearch(no);
@@ -255,8 +285,8 @@ class HeroNode {
       //说明我们左子树找到
       return resNode;
     }
-    //1.左递归前序查找，找到节点，则返回，否则继续判断，
-    //2.当前节点的右子节点是否为空，如果不空,则继续向右递归前序查找
+    //1.左递归前序查找，找到结点，则返回，否则继续判断，
+    //2.当前结点的右子结点是否为空，如果不空,则继续向右递归前序查找
     if (this.right != null) {
       resNode = this.right.preOrderSearch(no);
     }
@@ -265,7 +295,7 @@ class HeroNode {
 
   //中序遍历查找
   public HeroNode infixOrderSearch(int no) {
-    //判断当前节点的左子节点是否为空，如果不为空，则递归中序查找
+    //判断当前结点的左子结点是否为空，如果不为空，则递归中序查找
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.infixOrderSearch(no);
@@ -274,7 +304,7 @@ class HeroNode {
       return resNode;
     }
     System.out.println("进入中序查找");
-    //如果找到，则返回，如果没有找到，就和当前节点比较，如果是则返回当前节点
+    //如果找到，则返回，如果没有找到，就和当前结点比较，如果是则返回当前结点
     if (this.no == no) {
       return this;
     }
@@ -288,7 +318,7 @@ class HeroNode {
 
   //后序遍历查找
   public HeroNode postOrderSearch(int no) {
-    //判断当前节点的左子节点是否为空，如果不为空，则递归后序查找
+    //判断当前结点的左子结点是否为空，如果不为空，则递归后序查找
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.postOrderSearch(no);
@@ -306,7 +336,7 @@ class HeroNode {
       return resNode;
     }
     System.out.println("进入后序查找");
-    //如果左右子树都没有找到，就比较当前节点是不是
+    //如果左右子树都没有找到，就比较当前结点是不是
     if (this.no == no) {
       return this;
     }
