@@ -23,7 +23,7 @@ public class ArrBinaryTreeDemo {
 //编写一个ArrBinaryTree,实现顺序存储二叉树遍历
 class ArrBinaryTree {
 
-  //存储数据节点数组
+  //存储数据结点数组
   private int[] arr;
 
   public ArrBinaryTree(int[] arr) {

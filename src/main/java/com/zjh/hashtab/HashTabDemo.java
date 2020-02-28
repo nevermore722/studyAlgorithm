@@ -170,7 +170,7 @@ class EmpLinkedList {
     while (true) {
       System.out.printf("=> id = %d name=%s\t", curEmp.id, curEmp.name);
       if (curEmp.next == null) {
-        //说明curEmp已经是最后节点
+        //说明curEmp已经是最后结点
         break;
       }
       //后移，遍历

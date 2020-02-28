@@ -15,7 +15,7 @@ public class BinaryTreeDemo {
   public static void main(String[] args) {
     //先需要创建一颗二叉树
     BinaryTree binaryTree = new BinaryTree();
-    //创建需要的节点
+    //创建需要的结点
     HeroNode root = new HeroNode(1, "宋江");
     HeroNode node2 = new HeroNode(2, "吴用");
     HeroNode node3 = new HeroNode(3, "卢俊义");
@@ -76,7 +76,7 @@ public class BinaryTreeDemo {
       System.out.printf("没有找到 no=%d 的英雄", 5);
     }*/
 
-   //测试一把删除节点
+   //测试一把删除结点
     System.out.println("删除前，前序遍历");
     //1，2，3，5，4
     binaryTree.preOrder();
@@ -97,10 +97,10 @@ class BinaryTree {
     this.root = root;
   }
 
-  //删除节点
+  //删除结点
   public void delNode(int no) {
     if (root != null) {
-      //如果只有一个root节点，这里立即判断root是不是就是要删除节点
+      //如果只有一个root结点，这里立即判断root是不是就是要删除结点
       if (root.getNo() == no) {
         root = null;
       } else {
@@ -167,7 +167,7 @@ class BinaryTree {
   }
 }
 
-//先创建HeroNode 节点
+//先创建HeroNode 结点
 @Data
 class HeroNode {
 
@@ -183,16 +183,16 @@ class HeroNode {
     this.name = name;
   }
 
-  //递归删除节点
-  //1.如果删除的节点是叶子节点，则删除该节点
-  //2.如果删除的节点是非叶子节点，则删除该子树
+  //递归删除结点
+  //1.如果删除的结点是叶子结点，则删除该结点
+  //2.如果删除的结点是非叶子结点，则删除该子树
   public void delNode(int no) {
-    //2.如果当前节点的左子节点不为空，并且左子节点就是要删除节点，就将this.left = null;并且就返回（结束递归删除）
+    //2.如果当前结点的左子结点不为空，并且左子结点就是要删除结点，就将this.left = null;并且就返回（结束递归删除）
     if (this.left != null && this.left.no == no) {
       this.left = null;
       return;
     }
-    //3.如果当前节点的右子节点不为空，并且右子节点就是要删除节点，就将this.right = null;并且就返回(结束递归删除)
+    //3.如果当前结点的右子结点不为空，并且右子结点就是要删除结点，就将this.right = null;并且就返回(结束递归删除)
     if (this.right != null && this.right.no == no) {
       this.right = null;
       return;
@@ -210,7 +210,7 @@ class HeroNode {
 
   //编写前序遍历的方法
   public void preOrder() {
-    //先输出父节点
+    //先输出父结点
     System.out.println(this);
     //递归向左子树前序遍历
     if (this.left != null) {
@@ -228,7 +228,7 @@ class HeroNode {
     if (this.left != null) {
       this.left.infixOrder();
     }
-    //输出父节点
+    //输出父结点
     System.out.println(this);
     //递归向右子树中序遍历
     if (this.right != null) {
@@ -263,12 +263,12 @@ class HeroNode {
    */
   public HeroNode preOrderSearch(int no) {
     System.out.println("进入前序遍历~~");
-    //比较当前节点是不是
+    //比较当前结点是不是
     if (this.no == no) {
       return this;
     }
-    //1.则判断当前节点的左子节点是否为空，如果不为空，则递归前序查找
-    //2.如果左递归前序查找，找到节点，则返回
+    //1.则判断当前结点的左子结点是否为空，如果不为空，则递归前序查找
+    //2.如果左递归前序查找，找到结点，则返回
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.preOrderSearch(no);
@@ -277,8 +277,8 @@ class HeroNode {
       //说明我们左子树找到
       return resNode;
     }
-    //1.左递归前序查找，找到节点，则返回，否则继续判断，
-    //2.当前节点的右子节点是否为空，如果不空,则继续向右递归前序查找
+    //1.左递归前序查找，找到结点，则返回，否则继续判断，
+    //2.当前结点的右子结点是否为空，如果不空,则继续向右递归前序查找
     if (this.right != null) {
       resNode = this.right.preOrderSearch(no);
     }
@@ -287,7 +287,7 @@ class HeroNode {
 
   //中序遍历查找
   public HeroNode infixOrderSearch(int no) {
-    //判断当前节点的左子节点是否为空，如果不为空，则递归中序查找
+    //判断当前结点的左子结点是否为空，如果不为空，则递归中序查找
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.infixOrderSearch(no);
@@ -296,7 +296,7 @@ class HeroNode {
       return resNode;
     }
     System.out.println("进入中序查找");
-    //如果找到，则返回，如果没有找到，就和当前节点比较，如果是则返回当前节点
+    //如果找到，则返回，如果没有找到，就和当前结点比较，如果是则返回当前结点
     if (this.no == no) {
       return this;
     }
@@ -310,7 +310,7 @@ class HeroNode {
 
   //后序遍历查找
   public HeroNode postOrderSearch(int no) {
-    //判断当前节点的左子节点是否为空，如果不为空，则递归后序查找
+    //判断当前结点的左子结点是否为空，如果不为空，则递归后序查找
     HeroNode resNode = null;
     if (this.left != null) {
       resNode = this.left.postOrderSearch(no);
@@ -328,7 +328,7 @@ class HeroNode {
       return resNode;
     }
     System.out.println("进入后序查找");
-    //如果左右子树都没有找到，就比较当前节点是不是
+    //如果左右子树都没有找到，就比较当前结点是不是
     if (this.no == no) {
       return this;
     }
