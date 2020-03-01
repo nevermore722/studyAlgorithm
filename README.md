@@ -128,3 +128,6 @@ study Data Structure and Algorithm
 
 >2020/2/28
 >>com.zjh.tree.threadedbinarytree.ThreadedBinaryTreeDemo，线索化二叉树代码实现2
+
+>2020/3/1
+>>com.zjh.tree.threadedbinarytree.ThreadedBinaryTreeDemo，遍历线索化二叉树实现
