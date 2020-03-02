@@ -1,6 +1,8 @@
 package com.zjh.tree;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author ：ZouJiaHui
@@ -13,8 +15,28 @@ public class HeapSort {
 
   public static void main(String[] args) {
     //要求将数组进行升序排序
-    int arr[] = {4, 6, 8, 5, 9, -1, 90, 89, 56, -999};
+//    int arr[] = {4, 6, 8, 5, 9, -1, 90, 89, 56, -999};
+
+    //创建一个80000个的随机数组
+    int[] arr = new int[8000000];
+    for (int i = 0; i < 8000000; i++) {
+      //生成一个[0,8000000)数
+      arr[i] = (int) (Math.random() * 8000000);
+    }
+
+    System.out.println("排序前");
+    Date date1 = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String date1Str = simpleDateFormat.format(date1);
+    System.out.println("排序前的时间是=" + date1Str);
+
     heapSort(arr);
+
+    System.out.println("排序后");
+    Date date2 = new Date();
+    String date2Str = simpleDateFormat.format(date2);
+    System.out.println("排序后的时间是=" + date2Str);
+//    System.out.println("排序后=" + Arrays.toString(arr));
   }
 
   //编写一个堆排序的方法
@@ -48,7 +70,7 @@ public class HeapSort {
       adjustHeap(arr, 0, j);
     }
 
-    System.out.println("数组=" + Arrays.toString(arr));
+//    System.out.println("数组=" + Arrays.toString(arr));
   }
 
   //将一个数组（二叉树），调整成一个大顶堆
