@@ -1,5 +1,7 @@
 package com.zjh.tree;
 
+import java.util.Arrays;
+
 /**
  * @author ：ZouJiaHui
  * @date ：Created in 2020/3/2 10:49
@@ -11,12 +13,42 @@ public class HeapSort {
 
   public static void main(String[] args) {
     //要求将数组进行升序排序
-    int arr[] = {4, 6, 8, 5, 9};
+    int arr[] = {4, 6, 8, 5, 9, -1, 90, 89, 56, -999};
+    heapSort(arr);
   }
 
   //编写一个堆排序的方法
   public static void heapSort(int arr[]) {
+    int temp = 0;
     System.out.println("堆排序!!");
+
+/*    //分步完成
+    adjustHeap(arr, 1, arr.length);
+    //4, 9, 8, 5, 6
+    System.out.println("第1次" + Arrays.toString(arr));
+
+    adjustHeap(arr, 0, arr.length);
+    //9, 6 , 8, 5, 4
+    System.out.println("第2次"+Arrays.toString(arr));*/
+
+    //完成我们的最终代码
+    //将无序序列构成一个堆，根据升序降序需求选择大顶堆或小顶堆
+    for (int i = arr.length / 2 - 1; i >= 0; i--) {
+      adjustHeap(arr, i, arr.length);
+    }
+    /**
+     * 2).将堆顶元素与末尾元素交换，将最大元素"沉"到数组末端；
+     * 3).重新调整结构，使其满足堆定义，然后继续交换顶堆元素前末尾元素，反复执行调整+交换步骤，直到整个序列有序。
+     */
+    for (int j = arr.length - 1; j > 0; j--) {
+      //交换
+      temp = arr[j];
+      arr[j] = arr[0];
+      arr[0] = temp;
+      adjustHeap(arr, 0, j);
+    }
+
+    System.out.println("数组=" + Arrays.toString(arr));
   }
 
   //将一个数组（二叉树），调整成一个大顶堆
