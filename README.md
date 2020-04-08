@@ -134,5 +134,11 @@ study Data Structure and Algorithm
 
 >2020/3/2
 >>com.zjh.tree.HeapSort，堆排序的代码实现  
->>com.zjh.tree.HeapSort，堆排序的代码实现2
+>>com.zjh.tree.HeapSort，堆排序的代码实现2  
 >>com.zjh.tree.HeapSort，堆排序的速度测试和小结
+
+>2020/4/7
+>>com.zjh.huffmantree.HuffmanTree，赫夫曼树创建代码实现
+
+>2020/4/8
+>>com.zjh.huffmancode.HuffmanCode，数据压缩-创建赫夫曼树实现
