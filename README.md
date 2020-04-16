@@ -142,3 +142,6 @@ study Data Structure and Algorithm
 
 >2020/4/8
 >>com.zjh.huffmancode.HuffmanCode，数据压缩-创建赫夫曼树实现
+
+>2020/4/16
+>>com.zjh.huffmancode.HuffmanCode，数据压缩-生成赫夫曼编码表
