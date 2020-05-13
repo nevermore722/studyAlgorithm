@@ -145,3 +145,6 @@ study Data Structure and Algorithm
 
 >2020/4/16
 >>com.zjh.huffmancode.HuffmanCode，数据压缩-生成赫夫曼编码表
+
+>2020/5/13
+>>com.zjh.huffmancode.HuffmanCode，数据压缩-赫夫曼编码字节数组
